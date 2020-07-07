@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import {
   View,
   Image,
-  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
 import InputSelect from '../../components/InputSelect'
@@ -54,7 +54,6 @@ export default ({navigation}) => {
 const styles = StyleSheet.create({
   cont: {
     paddingHorizontal: 20,
-    marginTop: 50,
     paddingBottom: 50
   },
   button: {

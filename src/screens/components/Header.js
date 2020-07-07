@@ -1,11 +1,12 @@
 import React from 'react'
 import {
   View,
-  Text,
   Image,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
+
+import Text from '../../components/Text'
 
 export default ({title, buttonTitle, buttonClick}) => {
   return (<View style={[
@@ -38,10 +39,10 @@ const styles = StyleSheet.create({
   header__title: {
     fontSize: 18,
     textAlign: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   header__button: {
     fontSize: 16,
-    color: '#E32913'
+    color: '#E32913',
   }
 });

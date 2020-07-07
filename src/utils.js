@@ -3,4 +3,4 @@ export const apiCall = (path, params) => {
   //return Promise.reject([]);
 }
 
-export const getFont = type => undefined//type ? `sf-ui-display-${type}` : 'sf-ui-display-medium';
+export const getFont = type => type ? `SFUIDisplay-${type}` : 'SFUIDisplay-Medium';

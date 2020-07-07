@@ -1,10 +1,11 @@
 import React from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet
 } from 'react-native'
+
+import Text from '../../../components/Text'
 
 export default ({item: {title, descr, image}}) => (
   <View style={styles.box}>

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Button from '../../components/Button'
 import CodeInput from '../../components/CodeInput'
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     color: '#0D0802',
     textAlign: 'center',
-    lineHeight: 24
+    lineHeight: 24,
   },
   box__bottom: {
     position: 'absolute',

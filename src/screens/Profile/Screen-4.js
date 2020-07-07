@@ -5,6 +5,7 @@ import {
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
 import InputSelect from '../../components/InputSelect'

@@ -9,7 +9,7 @@ import {
 
 import ShowSvg from '../svg/show-input.svg'
 
-export default ({value, onChange, placeholder, style, inputStyle, secure, withoutBorder}) => {
+export default ({value, onChange, placeholder, style, inputStyle, secure, withoutBorder, ...props}) => {
   const [ _secure, _setSecure ] = useState(!!secure);
 
   return (<View style={[ style, styles.box ]}>
@@ -22,7 +22,8 @@ export default ({value, onChange, placeholder, style, inputStyle, secure, withou
       ]}
       value={value}
       onChangeText={onChange}
-      secureTextEntry={_secure}/>
+      secureTextEntry={_secure}
+      {...props}/>
 
     {secure ?
       <TouchableWithoutFeedback onPress={() => _setSecure(!_secure)}>
@@ -44,7 +45,7 @@ const styles = new StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: 'rgba(16,16,16,0.3)',
+    borderColor: '#D5D8DD',
     borderRadius: 8,
     height: 50,
     padding: 10,

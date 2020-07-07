@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../../components/Text'
 import Card from '../../../components/Card'
 
 import ItemStubImg from '../../../svg/item-stub.svg'

@@ -1,17 +1,16 @@
 import React from 'react'
 import {
   View,
-  Text,
   TouchableWithoutFeedback,
   Image,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Header from '../components/Header'
 
 import {useLoadOrders} from '../../store'
-import {getFont} from '../../utils'
 
 const formatDate = () => {
   return '15.03.2020 в 06:45';
@@ -64,13 +63,11 @@ const styles = StyleSheet.create({
   },
   items__item__title: {
     fontSize: 16,
-    fontFamily: getFont(),
     fontWeight: '400',
     color: '#0D0802'
   },
   items__item__text: {
     fontSize: 13,
-    fontFamily: getFont(),
     color: '#ADADB7',
     marginVertical: 2
   },

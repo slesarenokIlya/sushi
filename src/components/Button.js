@@ -1,10 +1,13 @@
 import React from 'react';
 import {
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   Text,
   View
 } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
+
+import {getFont} from '../utils'
 
 export default ({children, onClick, disabled, withoutBkg, withBorder, withMargin, style, bold, noText}) => {
   const onPress = () => {
@@ -12,15 +15,19 @@ export default ({children, onClick, disabled, withoutBkg, withBorder, withMargin
   }
 
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={[
-        styles.button,
-        disabled ? styles.button_disabled : undefined,
-        withoutBkg ? styles.button_withoutBkg : undefined,
-        withBorder ? styles.button_withBorder : undefined,
-        withMargin ? styles.button_withMargin : undefined,
-        style,
-      ]}>
+    <TouchableOpacity onPress={onPress}>
+      <LinearGradient
+        start={{x: 0, y: 0.5}}
+        end={{x: 1, y: 0.5}}
+        colors={ withoutBkg ? [ '#FFF', '#FFF' ] : [ '#E30613', '#E32913' ]}
+        style={[
+         styles.button,
+         disabled ? styles.button_disabled : undefined,
+         withoutBkg ? styles.button_withoutBkg : undefined,
+         withBorder ? styles.button_withBorder : undefined,
+         withMargin ? styles.button_withMargin : undefined,
+         style,
+       ]}>
         { noText ?
           children :
           <Text style={[
@@ -30,15 +37,14 @@ export default ({children, onClick, disabled, withoutBkg, withBorder, withMargin
             withoutBkg ? styles.button__text_withoutBkg : undefined,
           ]}>{children}</Text>
         }
-      </View>
-    </TouchableWithoutFeedback>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 }
 
 const styles = new StyleSheet.create({
   button: {
     height: 50,
-    backgroundColor: '#E30613',
     borderRadius: 10,
     justifyContent: 'center',
     paddingHorizontal: 20
@@ -67,6 +73,7 @@ const styles = new StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     color: '#FFF',
+    fontFamily: getFont(),
   },
   button__text_withoutBkg: {
     color: '#F00'
