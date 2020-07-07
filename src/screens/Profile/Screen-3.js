@@ -50,11 +50,11 @@ export default ({navigation, route}) => {
   return (<Screen>
       <Header title="Теперь введите код" />
       <View style={styles.box}>
-        <Text style={styles.box__descr}>Код отправили сообщением на {route.params.phone}</Text>
+        <Text style={styles.box__descr} type="light">Код отправили сообщением на {route.params.phone}</Text>
         <CodeInput value={code} onChange={setCode}/>
         <View style={styles.box__bottom}>
           {_timeout ? (
-            <Text style={styles.box__resend}>Если код не придет, можно получить новый через {_timeout} сек</Text>
+            <Text style={styles.box__resend} type="light">Если код не придет, можно получить новый через {_timeout} сек</Text>
           ) : (<></>)}
           <Button style={styles.box__button} onClick={() => {}} disabled={!!_timeout}>Получить новый код</Button>
         </View>
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
   },
   box__bottom: {
     position: 'absolute',
-    left: 0,
-    right: 0,
+    left: 20,
+    right: 20,
     bottom: 170
   },
   box__resend: {

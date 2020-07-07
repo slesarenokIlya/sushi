@@ -3,9 +3,10 @@ import {
   SafeAreaView,
   ScrollView,
   View,
-  Text,
   StatusBar
 } from 'react-native';
+
+import Text from './Text'
 
 export default ({children, disableScroll, withoutPadding}) => (
   <View style={{backgroundColor: '#FFF', minHeight: '100%'}}>
@@ -18,7 +19,8 @@ export default ({children, disableScroll, withoutPadding}) => (
         scrollEnabled={!disableScroll}
         bounces={false}
         showsVerticalScrollIndicator={false}
-        overScrollMode="never">
+        overScrollMode="never"
+        nestedScrollEnabled>
         <View style={[
             withoutPadding ? undefined : {padding: 10},
             {minHeight: '100%'}

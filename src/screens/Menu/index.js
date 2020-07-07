@@ -36,7 +36,7 @@ export default () => {
     </ScrollView>
 
     {activeOffer !== null ? (
-      <BottomScreen minHeight={120}
+      <BottomScreen minHeight={300}
         initialHeight={500}
         onClose={() => setActiveOffer(null)}
         bottomContent={(

@@ -26,7 +26,7 @@ export default ({navigation}) => {
   return (<Screen>
       <Header title="Укажите телефон" />
       <View style={styles.box}>
-        <Text style={styles.box__descr}>Сможете быстро оформлять заказы и использовать бонусы</Text>
+        <Text style={styles.box__descr} type="light">Сможете быстро оформлять заказы и использовать бонусы</Text>
         <PhoneInput value={phone} onChange={setPhone}/>
     </View>
 

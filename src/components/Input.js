@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TextInput,
   TouchableWithoutFeedback
 } from 'react-native'
+
+import Text from './Text'
 
 import ShowSvg from '../svg/show-input.svg'
 

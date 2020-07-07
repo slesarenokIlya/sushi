@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     height: 115,
     width: 115,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    resizeMode: 'contain'
   },
   item__title: {
     fontSize: 30,

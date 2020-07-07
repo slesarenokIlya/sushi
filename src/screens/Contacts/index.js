@@ -68,14 +68,15 @@ const styles = StyleSheet.create({
   },
   infoCont__row: {
     flexDirection: 'row',
-    marginVertical: 10
+    marginVertical: 10,
   },
   infoCont__row__icon: {
     width: 40,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 5
   },
   infoCont__row__cont: {
-    marginLeft: 20,
+    marginLeft: 10,
     flex: 1
   },
   infoCont__row__title: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     color: '#ADADB7',
   },
   rateButton: {
-    marginTop: 60,
+    marginTop: 40,
     marginHorizontal: 40
   },
   rateButton__text: {

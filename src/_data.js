@@ -2,15 +2,15 @@ import itemImg from './img/item.png'
 import offerImg from './img/offer.png'
 
 export const items = [
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 1},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 2},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 2},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
+  {id: 1, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
+  {id: 2, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
+  {id: 3, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 1},
+  {id: 4, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
+  {id: 5, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 2},
+  {id: 6, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
+  {id: 7, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
+  {id: 8, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 2},
+  {id: 9, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
 ]
 
 export const basket = [
@@ -30,6 +30,32 @@ export const offers = [
 ]
 
 export const orders = [
-  {id: 12132131, date: new Date(), count: 6, amount: 1441, status: 0},
-  {id: 12132112, date: new Date(), count: 4, amount: 1212, status: 1}
+  {
+    id: 12132131,
+    date: new Date(),
+    count: 6,
+    amount: 1441,
+    status: 0,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    deliveryTime: 35,
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+  items: [ {id: 1, count: 1}, {id: 4, count: 2}, {id: 9, count: 1} ]
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [ {id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1} ]
+  }
 ]

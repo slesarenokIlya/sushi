@@ -38,17 +38,18 @@ const style = new StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 5,
+    marginVertical: 10,
     borderWidth: 1,
-    borderColor: 'rgba(16,16,16,0.3)',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    borderColor: '#D5D8DD',
+    paddingVertical: 5,
+    paddingHorizontal: 60,
     borderRadius: 10,
-    width: '100%'
+    width: '100%',
+    height: 60
   },
   input: {
     borderBottomWidth: 1,
-    borderBottomColor: '#0D0D0D',
+    borderBottomColor: '#D5D8DD',
     textAlign: 'center',
     fontSize: 24,
     fontWeight: '500',

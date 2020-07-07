@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
   box__title: {
     fontSize: 21,
     fontWeight: '700',
-    marginVertical: 30,
+    marginTop: 30,
+    marginBottom: 10
   },
   box__descr: {
     fontSize: 16,

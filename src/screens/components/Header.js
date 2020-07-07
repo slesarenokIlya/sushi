@@ -13,7 +13,7 @@ export default ({title, buttonTitle, buttonClick}) => {
       {justifyContent: buttonTitle ? 'space-between' : 'center'},
       styles.header
     ]}>
-    <Text style={styles.header__title}>{title}</Text>
+    <Text style={styles.header__title} type="light">{title}</Text>
     {buttonTitle ? (
       <TouchableWithoutFeedback onPress={buttonClick}><Text style={styles.header__button}>{buttonTitle}</Text></TouchableWithoutFeedback>
     ) : (<></>)}
@@ -22,11 +22,11 @@ export default ({title, buttonTitle, buttonClick}) => {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 10,
+    padding: 12,
     marginHorizontal: 20,
-    marginBottom: 30,
+    marginBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(112,112,112,0.3)',
+    borderBottomColor: '#EBEBEA',
     flexDirection: 'row',
     /*position: 'absolute',
     top: 0,

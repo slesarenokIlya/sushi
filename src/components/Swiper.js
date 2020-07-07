@@ -2,15 +2,12 @@ import React, {useState, useEffect} from 'react'
 import {
   StyleSheet,
   TouchableWithoutFeedback,
-  Text,
   View,
   ScrollView,
   Dimensions
 } from 'react-native'
 
 import Animated from 'react-native-reanimated';
-
-import {getFont} from '../utils'
 
 const w = Dimensions.get('window').width
 const ITEM_MARGIN = 0;

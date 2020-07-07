@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   View,
   TouchableWithoutFeedback,
@@ -10,6 +10,8 @@ import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Header from '../components/Header'
 
+import Item from './components/Item'
+
 import {useLoadOrders} from '../../store'
 
 const formatDate = () => {
@@ -18,32 +20,35 @@ const formatDate = () => {
 
 export default () => {
   const items = useLoadOrders();
+  const [ itemShow, setItemShow ] = useState(null);
 
-  const onItemClick = () => {
-
+  const onItemClick = ind => {
+    setItemShow(ind);
   }
 
   return (<Screen>
     <Header title="Доставка" />
     <View style={styles.cont}>
       {items.map(({id, date, count, amount, status}, ind) => (
-        <TouchableWithoutFeedback key={ind} onPress={onItemClick}>
+        <TouchableWithoutFeedback key={ind} onPress={() => onItemClick(ind)}>
           <View style={styles.items__item}>
             <View style={styles.items__item__cont}>
               <Text style={styles.items__item__title}>Заказ №{id}</Text>
-              <Text style={[ styles.items__item__status, status ? styles.items__item__status_ready : undefined ]}>
+              <Text style={[ styles.items__item__status, status ? styles.items__item__status_done : undefined ]}>
                 {status ? 'Выполнен' : 'Готовится'}
               </Text>
             </View>
 
             <View>
-              <Text style={styles.items__item__text}>{formatDate(date)}</Text>
-              <Text style={styles.items__item__text}>{count} позиций на сумму  {amount} ₽</Text>
+              <Text style={styles.items__item__text} type="light">{formatDate(date)}</Text>
+              <Text style={styles.items__item__text} type="light">{count} позиций на сумму  {amount} ₽</Text>
             </View>
           </View>
       </TouchableWithoutFeedback>
     ))}
     </View>
+
+    {itemShow !== null ? <Item content={items[itemShow]} onClose={() => setItemShow(null)} /> : undefined}
   </Screen>);
 }
 
@@ -54,12 +59,12 @@ const styles = StyleSheet.create({
   items__item: {
     borderBottomWidth: 1,
     borderColor: '#EBEBEA',
-    paddingVertical: 10
+    paddingVertical: 20
   },
   items__item__cont: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 10
+    marginBottom: 5
   },
   items__item__title: {
     fontSize: 16,
@@ -73,9 +78,9 @@ const styles = StyleSheet.create({
   },
   items__item__status: {
     fontSize: 13,
-    color: '#ADADB7'
-  },
-  items__item__status_ready: {
     color: '#D6271D'
+  },
+  items__item__status_done: {
+    color: '#ADADB7',
   }
 });

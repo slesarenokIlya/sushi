@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import {
   View,
-  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
+
+import Text from './Text'
 
 import OpenArrow from '../svg/open-arrow.svg'
 
