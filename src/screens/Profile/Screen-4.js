@@ -7,20 +7,27 @@ import {
 
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
+import InputSelect from '../../components/InputSelect'
+import DateInput from '../../components/DateInput'
 import Button from '../../components/Button'
 
 import Header from '../components/Header'
 
 export default () => {
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [gender, setGender] = useState('');
 
   return (<Screen>
     <Header title="Настройки" buttonTitle="Готово" />
 
-    <Input value={name} onChange={setName} placeholder="Имя" />
-    <Input value={name} onChange={setName} placeholder="Имя" />
-    <Input value={name} onChange={setName} placeholder="Имя" />
-    <Input value={name} onChange={setName} placeholder="Имя" />
+    <View style={styles.cont}>
+      <Input value={name} onChange={setName} placeholder="Имя" />
+      <Input value={phone} onChange={setPhone} placeholder="Телефон" />
+      <DateInput value={birthday} onChange={setBirthday} placeholder="День рождения" />
+      <InputSelect items={['Мужской', 'Женский']} value={gender} onChange={setGender} placeholder="Пол" />
+    </View>
 
     <View style={styles.bottom}>
       <Button withoutBkg onClick={() => {}}>Выход</Button>
@@ -29,6 +36,9 @@ export default () => {
 }
 
 const styles = StyleSheet.create({
+  cont: {
+    paddingBottom: 110
+  },
   bottom: {
     position: 'absolute',
     left: 0,

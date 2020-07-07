@@ -8,7 +8,10 @@ import {
 } from 'react-native'
 
 export default ({title, buttonTitle, buttonClick}) => {
-  return (<View style={styles.header}>
+  return (<View style={[
+      {justifyContent: buttonTitle ? 'space-between' : 'center'},
+      styles.header
+    ]}>
     <Text style={styles.header__title}>{title}</Text>
     {buttonTitle ? (
       <TouchableWithoutFeedback onPress={buttonClick}><Text style={styles.header__button}>{buttonTitle}</Text></TouchableWithoutFeedback>
@@ -24,7 +27,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(112,112,112,0.3)',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     /*position: 'absolute',
     top: 0,
     left: 0,
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
   },
   header__title: {
     fontSize: 18,
+    textAlign: 'center',
     alignSelf: 'center'
   },
   header__button: {

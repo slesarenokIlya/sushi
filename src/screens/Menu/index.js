@@ -10,8 +10,7 @@ import Screen from '../../components/Screen'
 import BottomScreen from '../../components/BottomScreen'
 import Button from '../../components/Button'
 
-import {useLoadItems} from '../../store'
-import {useLoadOffers} from '../../store'
+import {useLoadItems, useLoadOffers} from '../../store'
 
 import Header from './components/Header'
 

@@ -7,14 +7,17 @@ import {
 
 const CODE_COUNT = 4;
 
-export default ({value, onChange}) => {
+export default ({value, onChange, codeLength}) => {
   const [ values, setValues ] = useState( new Array(CODE_COUNT) );
   const [ focus, setFocus ] = useState(0);
+
+  const _length = codeLength ? codeLength : CODE_COUNT
 
   return (<View style={style.container}>
     {
       new Array(CODE_COUNT).fill(null).map((_, i) =>
-        <TextInput key={i} style={style.input}
+        <TextInput key={i}
+        style={[ style.input, {width: `${(100 / CODE_COUNT) - (1 * CODE_COUNT)}%`} ]}
         keyboardType="number-pad"
         maxLength={1}
         selectTextOnFocus
@@ -45,11 +48,10 @@ const style = new StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(16,16,16,0.3)',
+    borderBottomColor: '#0D0D0D',
     textAlign: 'center',
-    fontSize: 36,
+    fontSize: 24,
     fontWeight: '500',
     color: '#000',
-    width: `${(100 / CODE_COUNT) - (1 * CODE_COUNT)}%`
   }
 });

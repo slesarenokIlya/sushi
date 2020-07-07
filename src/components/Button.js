@@ -14,19 +14,19 @@ export default ({children, onClick, disabled, withoutBkg, withBorder, withMargin
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[
-        style,
         styles.button,
         disabled ? styles.button_disabled : undefined,
         withoutBkg ? styles.button_withoutBkg : undefined,
         withBorder ? styles.button_withBorder : undefined,
-        withMargin ? styles.button_withMargin : undefined
+        withMargin ? styles.button_withMargin : undefined,
+        style,
       ]}>
         { noText ?
           children :
           <Text style={[
             styles.button__text,
-            //bold ? styles.button__text_bold : undefined
-            styles.button__text_bold,
+            bold ? styles.button__text_bold : undefined,
+            //styles.button__text_bold,
             withoutBkg ? styles.button__text_withoutBkg : undefined,
           ]}>{children}</Text>
         }
@@ -56,7 +56,8 @@ const styles = new StyleSheet.create({
   },
   button_withBorder: {
     borderWidth: 1,
-    borderColor: '#E30613'
+    borderColor: '#E30613',
+    shadowOpacity: 0
   },
   button_withMargin: {
     marginVertical: 10
@@ -64,6 +65,7 @@ const styles = new StyleSheet.create({
   button__text: {
     textAlign: 'center',
     fontSize: 18,
+    fontWeight: '400',
     color: '#FFF',
   },
   button__text_withoutBkg: {

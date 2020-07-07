@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   box__prefix: {
-    width: 50,
+    width: 60,
     height: 50,
     borderWidth: 1,
     borderRightWidth: 0,
