@@ -41,8 +41,10 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>sf-ui-display-medium.otf</string>
-		<string>sf-ui-display-bold.otf</string>
+		<string>SFUIDisplay-Medium.ttf</string>
+		<string>SFUIDisplay-Light.ttf</string>
+		<string>SFUIDisplay-Bold.ttf</string>
+		<string>SFUIDisplay-Regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
