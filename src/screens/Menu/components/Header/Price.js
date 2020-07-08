@@ -1,9 +1,10 @@
 import React from 'react'
 import {
   View,
-  Text,
   StyleSheet
 } from 'react-native'
+
+import Text from '../../../../components/Text'
 
 export default ({value}) => (
   <View style={styles.box}>

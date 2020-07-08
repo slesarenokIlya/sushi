@@ -1,9 +1,10 @@
 import React from 'react'
 import {
   View,
-  Text,
   StyleSheet
 } from 'react-native'
+
+import Text from '../../../../components/Text'
 
 import {CITIES} from '../../../../const'
 import OpenArrow from '../../../../svg/open-arrow.svg'

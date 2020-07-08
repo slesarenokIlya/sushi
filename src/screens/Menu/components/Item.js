@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../../components/Text'
 import Card from '../../../components/Card'
 
 import ItemStubImg from '../../../svg/item-stub.svg'
@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     height: 115,
     width: 115,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    resizeMode: 'contain'
   },
   item__title: {
     fontSize: 30,

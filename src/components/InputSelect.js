@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {
   View,
-  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
+import Text from './Text'
 import Input from './Input'
 
 import SelectArrow from '../svg/select-arrow.svg'
@@ -26,9 +26,11 @@ export default ({items, selected, onSelect, placeholder}) => {
 
     <View style={[ styles.box__list, listOpened ? styles.box__list_opened : {} ]}>
       {items.map((item, ind) => (
-        <View key={ind} style={styles.box__list__item}>
-          <Text>{item}</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => {onSelect(ind); setListOpened(false)}}>
+          <View key={ind} style={styles.box__list__item}>
+            <Text>{item}</Text>
+          </View>
+      </TouchableWithoutFeedback>
       ))}
     </View>
   </View>)

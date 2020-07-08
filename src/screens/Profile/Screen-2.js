@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Button from '../../components/Button'
+import PhoneInput from '../../components/PhoneInput'
 
-import PhoneInput from './components/PhoneInput'
 import Header from '../components/Header'
 
 import {apiCall} from '../../utils'
@@ -26,9 +26,12 @@ export default ({navigation}) => {
   return (<Screen>
       <Header title="Укажите телефон" />
       <View style={styles.box}>
-        <Text style={styles.box__descr}>Сможете быстро оформлять заказы и использовать бонусы</Text>
+        <Text style={styles.box__descr} type="light">Сможете быстро оформлять заказы и использовать бонусы</Text>
         <PhoneInput value={phone} onChange={setPhone}/>
-        <Button style={styles.box__button} onClick={onContinue}>Продолжить</Button>
+    </View>
+
+    <View style={styles.bottom}>
+      <Button style={styles.box__button} onClick={onContinue}>Продолжить</Button>
     </View>
   </Screen>);
 }
@@ -50,7 +53,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 24
   },
+  bottom: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20
+  },
   box__button: {
-    width: '100%'
+
   }
 });

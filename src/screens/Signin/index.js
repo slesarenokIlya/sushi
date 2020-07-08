@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import {
   View,
   Image,
-  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -32,16 +32,16 @@ export default ({navigation}) => {
     </View>
 
     <View style={styles.bottom}>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('restore')}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('restore')}><View>
         <Text style={[ styles.bottom__text, styles.bottom__touchText ]}>Забыли пароль?</Text>
-      </TouchableWithoutFeedback>
+      </View></TouchableWithoutFeedback>
 
       <View style={styles.bottom__cont}>
         <Text style={styles.bottom__text}>Еще нет аккаунта?</Text>
 
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('signup', {initial: true})}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('signup', {initial: true})}><View>
           <Text style={[ styles.bottom__text, styles.bottom__touchText ]}>Зарегистрируйтесь</Text>
-        </TouchableWithoutFeedback>
+        </View></TouchableWithoutFeedback>
       </View>
     </View>
   </Screen>);
@@ -50,7 +50,6 @@ export default ({navigation}) => {
 const styles = StyleSheet.create({
   cont: {
     paddingHorizontal: 20,
-    marginTop: 50,
     paddingBottom: 100
   },
   button: {

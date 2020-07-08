@@ -2,18 +2,18 @@ import React, {useState} from 'react'
 import {
   View,
   Image,
-  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
+import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import CodeInput from '../../components/CodeInput'
 import Header from '../components/Header'
 
-import {apiCall, getFont} from '../../utils'
+import {apiCall} from '../../utils'
 
 export default ({navigation}) => {
   const [ sended, setSended ] = useState(false);
@@ -40,7 +40,7 @@ export default ({navigation}) => {
 
       {sended ? (<>
         <View style={styles.text}>
-          <Text style={styles.text__title}>Подтверждение кодом</Text>
+          <Text style={styles.text__title} type="bold">Подтверждение кодом</Text>
           <Text style={styles.text__descr}>На ваш телефон придет СМС с кодом подтверждения регистрации</Text>
         </View>
         <CodeInput value={code} onChange={setCode} codeLength={8}/>
@@ -64,13 +64,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#0D0802',
     marginTop: 20,
-    fontFamily: getFont('bold')
   },
   text__descr: {
     fontSize: 13,
     color: '#1D1C1B',
     marginVertical: 15,
-    fontFamily: getFont()
   },
   button: {
     marginTop: 30

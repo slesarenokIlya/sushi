@@ -1,12 +1,12 @@
 import React from 'react'
 import {
   View,
-  Text,
   StyleSheet,
   TouchableWithoutFeedback,
   ScrollView
 } from 'react-native'
 
+import Text from '../../../components/Text'
 import Button from '../../../components/Button'
 
 import {ITEMS_TABS} from '../../../const'
