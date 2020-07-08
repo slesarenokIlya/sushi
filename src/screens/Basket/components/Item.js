@@ -9,16 +9,12 @@ import Text from '../../../components/Text'
 import Card from '../../../components/Card'
 import Button from '../../../components/Button'
 
-import ItemStubImg from '../../../svg/item-stub.svg'
+import ItemImage from '../../components/ItemImage'
 
 export default ({item: {title, descr, weight, price, image}, onChangeClick}) => {
 
   return (<View style={styles.item}>
-    <View>
-      {image ?
-        <Image style={styles.item__image} source={image} />
-        : <View style={styles.item__image}><ItemStubImg /></View>}
-    </View>
+    <ItemImage style={styles.item__image} source={image} />
     <View style={styles.item__cont}>
       <View>
         <Text style={styles.item__title}>{title}</Text>
@@ -46,12 +42,14 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     width: '100%',
-    margin: 10
+    margin: 10,
+    borderBottomWidth: 1,
+    borderColor: '#EBEBEA'
   },
   item__cont: {
     flex: 1,
     justifyContent: 'space-between',
-    padding: 10
+    padding: 10,
   },
   item__image: {
     height: 115,

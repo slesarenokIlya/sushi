@@ -2,15 +2,112 @@ import itemImg from './img/item.png'
 import offerImg from './img/offer.png'
 
 export const items = [
-  {id: 1, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {id: 2, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {id: 3, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 1},
-  {id: 4, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
-  {id: 5, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 2},
-  {id: 6, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
-  {id: 7, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3},
-  {id: 8, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 2},
-  {id: 9, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
+  {id: 1, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0,
+    list: [
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 2},
+      {title: 'Фила чиз', count: 3},
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 4},
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 2},
+      {title: 'Фила чиз', count: 3},
+      {title: 'Фила чиз', count: 1},
+      {title: 'Фила чиз', count: 4},
+      {title: 'Фила чиз', count: 1},
+    ]},
+  {id: 2, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 3, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 4, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 0,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 4, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 0,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 4, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 0,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 5, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 2,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 6, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 7, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 3,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 8, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 2,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
+  {id: 9, title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1,
+  list: [
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 2},
+    {title: 'Фила чиз', count: 3},
+    {title: 'Фила чиз', count: 1},
+    {title: 'Фила чиз', count: 4},
+  ]},
 ]
 
 export const basket = [
@@ -58,4 +155,14 @@ export const orders = [
 Оплата картой онлайн`,
     items: [ {id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1} ]
   }
-]
+];
+
+export const basketOffers = [0, 3, 5, 6];
+
+export const user = {
+  name: 'name',
+  phone: '12121212',
+  birthday: '12.12.12',
+  gender: 1,
+  balance: 1234
+}

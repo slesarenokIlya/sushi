@@ -43,9 +43,9 @@ export default ({navigation}) => {
       <View style={styles.bottom__cont}>
         <Text style={styles.bottom__text}>Уже есть аккаунт?</Text>
 
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('signin')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('signin')}><View>
           <Text style={[ styles.bottom__text, styles.bottom__touchText ]}>Войдите</Text>
-        </TouchableWithoutFeedback>
+        </View></TouchableWithoutFeedback>
       </View>
     </View>
   </Screen>);

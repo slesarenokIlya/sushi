@@ -15,9 +15,22 @@ import Arrow from '../svg/bottom-screen-arrow.svg'
 const SCREEN_HEIGHT = ( Dimensions.get('window').height - StatusBar.currentHeight ) * 0.9;
 const MIN_SCREEN_HEIGHT = 120;
 const HITBOX_HEIGHT = 40;
-const SCREEN_PADDING = 30 + HITBOX_HEIGHT;
+const SCREEN_PADDING = HITBOX_HEIGHT;
 
-export default ({children, bottomContent, minHeight, maxHeight, autoHeight, initialHeight, withPadding, onClose}) => {
+export default ({
+  children,
+  bottomContent,
+  minHeight,
+  maxHeight,
+  autoHeight,
+  initialHeight,
+  withPadding,
+  onClose,
+  noClose,
+  noCover,
+  noOverScroll,
+  hitboxComponent
+}) => {
   const [ lastY, setLastY ] = useState(0);
   const [ minOffset, _setMinOffset ] = useState(minHeight ? minHeight : MIN_SCREEN_HEIGHT);
   const [ maxOffset, _setMaxOffset ] = useState(maxHeight ? maxHeight : SCREEN_HEIGHT);
@@ -45,11 +58,17 @@ export default ({children, bottomContent, minHeight, maxHeight, autoHeight, init
   const [ paddingBottom, setPaddingBottom ] = useState(0);
 
   const close = () => {
-    timing(translate, {
-      duration: 120,
-      toValue: offset,
-      easing: Easing.inOut(Easing.quad),
-    }).start(() => setTimeout(onClose, 0));
+    if( noClose ){
+      if( offset <= minOffset ){
+        setOffset(minOffset)
+      }
+    } else {
+      timing(translate, {
+        duration: 120,
+        toValue: offset,
+        easing: Easing.inOut(Easing.quad),
+      }).start(() => setTimeout(onClose, 0));
+    }
   }
 
   const onTouchMove = ({nativeEvent: {pageY}}) => {
@@ -58,6 +77,7 @@ export default ({children, bottomContent, minHeight, maxHeight, autoHeight, init
       : 1;
     var delta = (lastY - pageY) * mult;
     var _offset = offset + delta;
+    if( noOverScroll && _offset < minOffset ) return;
     //if( _offset < minOffset ) return setOffset(minOffset);
     if( _offset > maxOffset ) return setOffset(maxOffset);
     setLastY( pageY );
@@ -80,10 +100,13 @@ export default ({children, bottomContent, minHeight, maxHeight, autoHeight, init
     else setOffset( off < minHeight ? minHeight : off );
   }
 
+  const Hitbox = hitboxComponent;
   return (<>
-    <TouchableWithoutFeedback onPress={close}>
-    <View style={{...StyleSheet.absoluteFill, backgroundColor: `rgba(0,0,0,${bkgFunc(offset)})`}}></View>
+    {noCover ? (<></>) : (
+      <TouchableWithoutFeedback onPress={close}>
+    <View style={{...StyleSheet.absoluteFill, backgroundColor: `rgba(0,0,0,${bkgFunc(offset)})`}} />
     </TouchableWithoutFeedback>
+    )}
 
     <Animated.View style={[
         styles.container,
@@ -97,15 +120,20 @@ export default ({children, bottomContent, minHeight, maxHeight, autoHeight, init
         onResponderMove={onTouchMove}
         onResponderRelease={onTouchEnd}>
         {/*<View style={styles.hitbox__button}></View>*/}
-        <Arrow />
+        {Hitbox ? <Hitbox /> : <Arrow />}
       </View>
 
       <View style={[
           styles.screen,
           withPadding ? styles.screen_withPadding : undefined
         ]}>
-        <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
-          <View style={{paddingBottom: SCREEN_PADDING + (bottomContent ? paddingBottom : 0)}}
+        <ScrollView bounces={false}
+          showsVerticalScrollIndicator={false}
+          overScrollMode="never"
+          nestedScrollEnabled>
+          <View style={{
+            paddingBottom: SCREEN_PADDING + (bottomContent ? paddingBottom : 0) + (SCREEN_HEIGHT - maxOffset)
+            }}
            onLayout={({nativeEvent: {layout}}) => onLayout(layout)}>{children}</View>
         </ScrollView>
       </View>

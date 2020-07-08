@@ -28,7 +28,8 @@ export default ({onChange, selected}) => (
 const styles = StyleSheet.create({
   box: {
     flexDirection: 'row',
-    marginVertical: 20
+    paddingVertical: 10,
+    backgroundColor: '#FFF'
   },
   box__item: {
     height: 30,
