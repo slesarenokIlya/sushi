@@ -6,6 +6,8 @@ import {
   StyleSheet
 } from 'react-native'
 
+import { StackActions } from '@react-navigation/native';
+
 import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
@@ -18,6 +20,7 @@ export default ({navigation}) => {
 
   const onLogin = () => {
     //login
+    navigation.dispatch( StackActions.replace('main') );
     navigation.navigate('main');
   }
 

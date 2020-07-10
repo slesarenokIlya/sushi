@@ -23,7 +23,7 @@ export default ({navigation}) => {
   const onSubmit = () => {
     if( sended ){
       apiCall('/sendCode', {code}).then(r => {
-        navigation.navigate('main');
+        navigation.navigate('signin');
       });
     } else {
       apiCall('/getCode').then(r => {

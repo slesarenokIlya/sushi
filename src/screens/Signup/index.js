@@ -6,12 +6,16 @@ import {
   StyleSheet
 } from 'react-native'
 
+import { StackActions } from '@react-navigation/native';
+
 import Text from '../../components/Text'
 import Screen from '../../components/Screen'
 import Input from '../../components/Input'
 import InputSelect from '../../components/InputSelect'
 import Button from '../../components/Button'
 import Header from '../components/Header'
+
+import {apiCall} from '../../utils'
 
 export default ({navigation}) => {
   const [ login, setLogin ] = useState('');
@@ -21,8 +25,9 @@ export default ({navigation}) => {
   const [ pwdRepeat, setPwdRepeat ] = useState('');
 
   const onReg = () => {
-    //reg
-    navigation.navigate('main');
+    apiCall('/signup', {}).then(r => {
+      navigation.dispatch( StackActions.replace('main') );
+    });
   }
 
   return (<Screen>
@@ -43,9 +48,9 @@ export default ({navigation}) => {
       <View style={styles.bottom__cont}>
         <Text style={styles.bottom__text}>Уже есть аккаунт?</Text>
 
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('signin')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('signin')}><View>
           <Text style={[ styles.bottom__text, styles.bottom__touchText ]}>Войдите</Text>
-        </TouchableWithoutFeedback>
+        </View></TouchableWithoutFeedback>
       </View>
     </View>
   </Screen>);
