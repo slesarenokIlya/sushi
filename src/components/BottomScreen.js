@@ -14,7 +14,7 @@ import Arrow from '../svg/bottom-screen-arrow.svg'
 
 const SCREEN_HEIGHT = ( Dimensions.get('window').height - StatusBar.currentHeight ) * 0.9;
 const MIN_SCREEN_HEIGHT = 120;
-const HITBOX_HEIGHT = 40;
+const HITBOX_HEIGHT = 30;
 const SCREEN_PADDING = HITBOX_HEIGHT;
 
 export default ({
@@ -71,17 +71,21 @@ export default ({
     }
   }
 
-  const onTouchMove = ({nativeEvent: {pageY}}) => {
+  const _setOffset = delta => {
     var mult = offset <= minOffset ?
       (1 - ((minOffset - offset) / minOffset) ) / 4
       : 1;
-    var delta = (lastY - pageY) * mult;
+    delta *= mult;
     var _offset = offset + delta;
     if( noOverScroll && _offset < minOffset ) return;
     //if( _offset < minOffset ) return setOffset(minOffset);
     if( _offset > maxOffset ) return setOffset(maxOffset);
-    setLastY( pageY );
     setOffset(_offset);
+  }
+  const onTouchMove = ({nativeEvent: {pageY}}) => {
+    var delta = lastY - pageY;
+    _setOffset(delta);
+    setLastY( pageY );
   }
   const onTouchEnd = () => {
     if( offset <= minOffset ){
@@ -113,7 +117,7 @@ export default ({
         {bottom: -SCREEN_HEIGHT + offset},
         {transform: [{translateY: translate}]}
       ]}>
-      <View style={styles.hitbox}
+      <View style={[ styles.hitbox, {justifyContent: Hitbox ? 'flex-start' : 'flex-end'} ]}
         onStartShouldSetResponder={() => true}
         onMoveShouldSetResponder={() => true}
         onResponderGrant={({nativeEvent: {pageY}}) => setLastY( pageY )}
@@ -157,10 +161,9 @@ const styles = new StyleSheet.create({
   },
   hitbox: {
     width: '100%',
-    height: HITBOX_HEIGHT,
-    justifyContent: 'flex-end',
+    height: HITBOX_HEIGHT + 10,
     alignItems: 'center',
-    top: 20,
+    top: HITBOX_HEIGHT,
     zIndex: 10,
     elevation: 5,
     backgroundColor: 'transparent',
@@ -182,7 +185,7 @@ const styles = new StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 10,
     elevation: 4,
-    paddingTop: 40
+    paddingTop: HITBOX_HEIGHT + 10
   },
   screen_withPadding: {
     padding: 20

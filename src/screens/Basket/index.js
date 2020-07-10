@@ -61,7 +61,7 @@ export default () => {
 const styles = StyleSheet.create({
   cont: {
     marginBottom: 60,
-    height: 0
+    height: 0,
   },
   offers: {
     paddingHorizontal: 20

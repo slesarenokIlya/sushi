@@ -15,7 +15,6 @@ import StickyScrollView from '../../components/StickyScrollView'
 import {useLoadItems, useLoadOffers} from '../../store'
 
 import Header from './components/Header'
-
 import Offers from './components/Offers'
 import Filter from './components/Filter'
 import Item from './components/Item'
@@ -61,6 +60,7 @@ export default () => {
           onBasketAdd={() => {}}/>
       </View>
     ) : (<></>)}
+    
   </Screen>)
 }
 

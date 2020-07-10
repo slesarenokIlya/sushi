@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   },
   greeting__text: {
     fontSize: 17,
-    lineHeight: 25
+    lineHeight: 25,
+    textAlign: 'center'
   }
 });
