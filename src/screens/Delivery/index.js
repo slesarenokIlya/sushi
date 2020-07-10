@@ -18,7 +18,7 @@ const formatDate = () => {
   return '15.03.2020 в 06:45';
 }
 
-export default () => {
+export default ({navigation}) => {
   const items = useLoadOrders();
   const [ itemShow, setItemShow ] = useState(null);
 
@@ -48,7 +48,7 @@ export default () => {
     ))}
     </View>
 
-    {itemShow !== null ? <Item content={items[itemShow]} onClose={() => setItemShow(null)} /> : undefined}
+    {itemShow !== null ? <Item navigation={navigation} item={items[itemShow]} onClose={() => setItemShow(null)} /> : undefined}
   </Screen>);
 }
 

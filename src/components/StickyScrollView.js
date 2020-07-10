@@ -24,7 +24,8 @@ export default ({children, topContent, stickyContent, style}) => {
       bounces={false}
       showsVerticalScrollIndicator={false}
       onScroll={onScroll}
-      overScrollMode="never">
+      overScrollMode="never"
+      scrollEventThrottle={16}>
       <View onLayout={
         ({nativeEvent: {layout: {height}}}) =>_setTopContentHeight(height)
       }>{topContent}</View>

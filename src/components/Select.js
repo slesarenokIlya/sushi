@@ -19,6 +19,7 @@ export default ({items, selected, onSelect}) => {
         <OpenArrow />
       </View>
     </TouchableWithoutFeedback>
+
     <View style={[ styles.box__list, listOpened ? styles.box__list_opened : {} ]}>
       {items.map((item, ind) => (
         <View key={ind} style={styles.box__list__item}>
@@ -33,7 +34,9 @@ const styles = StyleSheet.create({
   box: {
     height: 40,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 200,
+    elevation: 20,
   },
   box__cont: {
     flexDirection: 'row',
@@ -49,17 +52,15 @@ const styles = StyleSheet.create({
     top: 40,
     padding: 5,
     borderRadius: 6,
-    opacity: 0,
-    zIndex: 200,
-    elevation: 20,
+    display: 'none',
     borderWidth: 1,
-    borderColor: 'rgba(16,16,16,0.3)',
+    borderColor: '#D5D8DD',
     backgroundColor: '#FFF'
   },
   box__list__item: {
     padding: 5
   },
   box__list_opened: {
-    opacity: 1
+    display: 'flex'
   }
 })

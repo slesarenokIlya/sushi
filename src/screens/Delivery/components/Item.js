@@ -14,7 +14,7 @@ import ItemImage from '../../components/ItemImage'
 
 import {useLoadItems} from '../../../store'
 
-export default ({content: {id, status, details, summary, deliveryTime, items}, onClose}) => {
+export default ({navigation, item: {id, status, details, summary, deliveryTime, items}, onClose}) => {
   var allItems = useLoadItems();
 
   return (<BottomScreen onClose={onClose} autoHeight>
@@ -64,14 +64,19 @@ export default ({content: {id, status, details, summary, deliveryTime, items}, o
           {items.map(({id, count}, ind) => {
             var item = allItems.find(({id: _id}) => _id === id);
             return !item ? undefined : (
-              <View key={ind} style={styles.list__item}>
-                <ItemImage style={styles.list__item__image} source={item.image} />
-                <View style={styles.list__item__cont}>
-                  <Text style={styles.list__item__title} type="light">{item.title}</Text>
-                  <Text style={styles.list__item__weight} type="light">{item.weight} гр</Text>
-                  <Text style={styles.list__item__price}>{item.price} ₽ x {count}</Text>
+              <TouchableWithoutFeedback onPress={() => navigation.navigate('menuTab', {
+                  screen: 'item',
+                  params: {item}
+                })}>
+                <View key={ind} style={styles.list__item}>
+                  <ItemImage style={styles.list__item__image} source={item.image} />
+                  <View style={styles.list__item__cont}>
+                    <Text style={styles.list__item__title} type="light">{item.title}</Text>
+                    <Text style={styles.list__item__weight} type="light">{item.weight} гр</Text>
+                    <Text style={styles.list__item__price}>{item.price} ₽ x {count}</Text>
+                  </View>
                 </View>
-              </View>
+              </TouchableWithoutFeedback>
             )
           })}
         </View>

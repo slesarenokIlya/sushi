@@ -19,14 +19,17 @@ import Offers from './components/Offers'
 import Filter from './components/Filter'
 import Item from './components/Item'
 import OfferContent from './components/OfferContent'
-import ItemContent from './components/ItemContent'
+import ItemContent from '../Item'
 
-export default () => {
+export default ({navigation}) => {
   const items = useLoadItems();
   const offers = useLoadOffers();
   const [ activeTab, setActiveTab ] = useState(0);
   const [ activeOffer, setActiveOffer ] = useState(null);
-  const [ activeItem, setActiveItem ] = useState(null);
+
+  const itemClick = ind => {
+    navigation.navigate('item', {item: items[ind]});
+  }
 
   return (<Screen disableScroll>
     <Header />
@@ -38,7 +41,7 @@ export default () => {
         <Filter onChange={setActiveTab} selected={activeTab}/>
       )}>
       {items.filter(({category}) => category === activeTab).map((item, ind) =>
-        <Item key={ind} item={item} onClick={() => setActiveItem(ind)}/>
+        <Item key={ind} item={item} onClick={() => itemClick(ind)}/>
       )}
     </StickyScrollView>
 
@@ -53,14 +56,6 @@ export default () => {
       </BottomScreen>
     ) : (<></>)}
 
-    {activeItem !== null ? (
-      <View style={styles.itemContent}>
-        <ItemContent item={items[activeItem]}
-          onClose={() => setActiveItem(null)}
-          onBasketAdd={() => {}}/>
-      </View>
-    ) : (<></>)}
-    
   </Screen>)
 }
 
@@ -68,9 +63,4 @@ const styles = StyleSheet.create({
   items: {
     height: 0,
   },
-  itemContent: {
-    ...StyleSheet.absoluteFill,
-    zIndex: 10,
-    elevation: 10
-  }
 })

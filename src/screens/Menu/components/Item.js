@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
   item__cont: {
     flex: 1,
     justifyContent: 'space-between',
-    padding: 10
+    padding: 10,
+    marginLeft: 5
   },
   item__image: {
     height: 115,

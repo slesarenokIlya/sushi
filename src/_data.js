@@ -110,13 +110,7 @@ export const items = [
   ]},
 ]
 
-export const basket = [
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 0},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: itemImg, category: 2},
-  {title: 'test', descr: 'lalalalalalalal', weight: 123, price: 333, image: null, category: 1},
-]
+export const basket = [ 0, 4, 5, 6 ];
 
 export const offers = [
   {image: offerImg, title: 'lalalal', descr: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.`},

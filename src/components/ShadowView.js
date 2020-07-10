@@ -7,8 +7,8 @@ export default ({children, style}) => (
   <View style={[{
     shadowOffset:{  width: 0,  height: 0,  },
     shadowColor: '#000',
-    shadowOpacity: 1,
-    shadowRadius: 8,
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
     elevation: 2,
     backgroundColor: '#FFF'
   }, style]}>{children}</View>

@@ -2,6 +2,7 @@ import React from 'react'
 import {
   View,
   Image,
+  TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
@@ -11,10 +12,16 @@ import Button from '../../../components/Button'
 
 import ItemImage from '../../components/ItemImage'
 
-export default ({item: {title, descr, weight, price, image}, onChangeClick}) => {
+export default ({navigation, item, onChangeClick}) => {
+  const {title, descr, weight, price, image} = item;
 
   return (<View style={styles.item}>
-    <ItemImage style={styles.item__image} source={image} />
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('menuTab', {
+        screen: 'item',
+        params: {item}
+      })}><View>
+      <ItemImage style={styles.item__image} source={image} />
+    </View></TouchableWithoutFeedback>
     <View style={styles.item__cont}>
       <View>
         <Text style={styles.item__title}>{title}</Text>

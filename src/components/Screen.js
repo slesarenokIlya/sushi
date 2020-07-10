@@ -10,7 +10,7 @@ import Text from './Text'
 
 export default ({children, disableScroll, withoutPadding}) => (
   <View style={{backgroundColor: '#FFF', minHeight: '100%'}}>
-    <StatusBar barStyle="light-content"/>
+    <StatusBar barStyle="dark-content"/>
 
     <SafeAreaView style={{minHeight: '100%'}}>
       <View style={{overflow: 'hidden'}}>

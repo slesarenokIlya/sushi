@@ -3,6 +3,7 @@ import {
   View,
   Image,
   ScrollView,
+  TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
@@ -17,13 +18,16 @@ import Item from './components/Item'
 
 import {useLoadBasket, useLoadBasketOffers, useLoadItems} from '../../store'
 
-export default () => {
-  const items = useLoadBasket();
+export default ({navigation}) => {
   const allItems = useLoadItems();
+  const _basket = useLoadBasket();
   const _offers = useLoadBasketOffers();
   const offers = allItems.filter(({id}) => _offers.includes(id));
+  const basket = allItems.filter(({id}) => _basket.includes(id));
 
-  var sum = items.reduce((s, {price}) => price + s, 0);
+
+
+  var sum = basket.reduce((s, {price}) => price + s, 0);
 
   const onChangeClick = () => {
 
@@ -35,20 +39,25 @@ export default () => {
       bounces={false}
       showsVerticalScrollIndicator={false}
       overScrollMode="never">
-      {items.map((item, ind) => (<Item key={ind} item={item} onChangeClick={onChangeClick}/>))}
+      {basket.map((item, ind) => (<Item navigation={navigation} key={ind} item={item} onChangeClick={onChangeClick}/>))}
 
       <View style={styles.offers}>
         {offers.length ?
           <Text style={styles.offers__title}>Рекомендуем попробовать</Text> :
           undefined}
         {offers.map(({image, title, price}, ind) => (
-          <View key={ind} style={styles.offers__item}>
-            <ItemImage style={styles.offers__item__image} source={image} />
-            <View>
-              <Text style={styles.offers__item__title}>{title}</Text>
-              <Text style={styles.offers__item__price} type="bold">{price} ₽</Text>
-            </View>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('menuTab', {
+            screen: 'item',
+            params: {item: offers[ind]}
+          })}>
+            <View key={ind} style={styles.offers__item}>
+              <ItemImage style={styles.offers__item__image} source={image} />
+              <View>
+                <Text style={styles.offers__item__title}>{title}</Text>
+                <Text style={styles.offers__item__price} type="bold">{price} ₽</Text>
+              </View>
           </View>
+          </TouchableWithoutFeedback>
         ))}
       </View>
     </ScrollView>

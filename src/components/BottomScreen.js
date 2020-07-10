@@ -12,7 +12,7 @@ import Animated, { Value, timing, Easing } from 'react-native-reanimated';
 
 import Arrow from '../svg/bottom-screen-arrow.svg'
 
-const SCREEN_HEIGHT = ( Dimensions.get('window').height - StatusBar.currentHeight ) * 0.9;
+const SCREEN_HEIGHT = ( Dimensions.get('window').height - StatusBar.currentHeight ) * 0.85;
 const MIN_SCREEN_HEIGHT = 120;
 const HITBOX_HEIGHT = 30;
 const SCREEN_PADDING = HITBOX_HEIGHT;

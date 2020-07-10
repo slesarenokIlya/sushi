@@ -14,14 +14,16 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import Header from '../components/Header'
 
+import {apiCall} from '../../utils'
+
 export default ({navigation}) => {
   const [ login, setLogin ] = useState('');
   const [ pwd, setPwd ] = useState('');
 
   const onLogin = () => {
-    //login
-    navigation.dispatch( StackActions.replace('main') );
-    navigation.navigate('main');
+    apiCall('/signin', {login, password: pwd}).then(r => {
+      navigation.dispatch( StackActions.replace('main') );
+    });
   }
 
   return (<Screen>
