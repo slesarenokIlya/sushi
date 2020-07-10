@@ -25,7 +25,7 @@ export default ({navigation, route}) => {
     if( v.length === 4 ) {
       setBlocked(true);
       apiCall('', {code: v}).then(() => {
-        navigation.navigate('profile-4');
+        navigation.navigate('profile-settings');
       }).catch(() => {
         setCode('');
         setBlocked(false);

@@ -57,7 +57,8 @@ export default () => {
 const styles = StyleSheet.create({
   mapCont: {
     marginHorizontal: 40,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 20
   },
   mapButton: {
     width: '100%',

@@ -20,7 +20,8 @@ export default ({navigation}) => {
         <Image style={styles.box__image} source={defaultImg} />
         <Text style={styles.box__title} type="bold">Давайте знакомиться!</Text>
         <Text style={styles.box__descr} type="light">Подарим подарок на день рождения, сохраним адрес доставки и расскажем об акциях</Text>
-        <Button style={styles.box__button} onClick={() => navigation.navigate('profile-2')}>Указать телефон</Button>
+        <Button style={styles.box__button}
+          onClick={() => navigation.navigate('profile-phone')}>Указать телефон</Button>
     </View>
   </Screen>);
 }

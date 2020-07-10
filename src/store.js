@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {apiCall} from './utils'
-/**/import {items, offers, orders, basket} from './_data.js'/**/
+/**/import {items, offers, orders, basket, basketOffers, user} from './_data.js'/**/
 
 const _useHook = method => {
   const [data, setData] = useState([]);
@@ -30,8 +30,20 @@ export const loadOffers = () => {
 }
 export const useLoadOffers = () => _useHook(loadOffers);
 
+export const loadBasketOffers = () => {
+  //return apiCall('/getOrders');
+  return Promise.resolve(basketOffers);
+}
+export const useLoadBasketOffers = () => _useHook(loadBasketOffers);
+
 export const loadOrders = () => {
   //return apiCall('/getOrders');
   return Promise.resolve(orders);
 }
 export const useLoadOrders = () => _useHook(loadOrders);
+
+export const loadUser = () => {
+  //return apiCall('/getOrders');
+  return Promise.resolve(user);
+}
+export const useLoadUser = () => _useHook(loadUser);

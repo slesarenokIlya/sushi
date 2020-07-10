@@ -6,13 +6,13 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import Text from '../../../../components/Text'
-import Card from '../../../../components/Card'
-import BottomScreen from '../../../../components/BottomScreen'
+import Text from '../../../components/Text'
+import Card from '../../../components/Card'
+import BottomScreen from '../../../components/BottomScreen'
 
-import {useLoadItems} from '../../../../store'
+import ItemImage from '../../components/ItemImage'
 
-import ItemStubImg from '../../../../svg/item-stub.svg'
+import {useLoadItems} from '../../../store'
 
 export default ({content: {id, status, details, summary, deliveryTime, items}, onClose}) => {
   var allItems = useLoadItems();
@@ -29,7 +29,7 @@ export default ({content: {id, status, details, summary, deliveryTime, items}, o
         </Card>
 
         <View style={styles.details}>
-          <Text style={styles.details__title}>Детали заказа:</Text>
+          <Text style={styles.details__title} type="bold">Детали заказа:</Text>
           <Text style={styles.details__value} type="light">{details}</Text>
         </View>
 
@@ -61,13 +61,11 @@ export default ({content: {id, status, details, summary, deliveryTime, items}, o
         </View>
         <View style={styles.list}>
           <Text style={styles.list__title}>В заказе:</Text>
-          {items.map(({id, count}) => {
+          {items.map(({id, count}, ind) => {
             var item = allItems.find(({id: _id}) => _id === id);
-            return !item ? (<></>) : (
-              <View style={styles.list__item}>
-                {item.image ?
-                  <Image style={styles.list__item__image} source={item.image} /> :
-                  <View style={styles.list__item__image}><ItemStubImg /></View>}
+            return !item ? undefined : (
+              <View key={ind} style={styles.list__item}>
+                <ItemImage style={styles.list__item__image} source={item.image} />
                 <View style={styles.list__item__cont}>
                   <Text style={styles.list__item__title} type="light">{item.title}</Text>
                   <Text style={styles.list__item__weight} type="light">{item.weight} гр</Text>
@@ -88,11 +86,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '400',
-    marginVertical: 10
+    marginBottom: 10
   },
   status: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    padding: 10
   },
   status__left: {
     color: '#D6271D',
@@ -135,6 +134,10 @@ const styles = StyleSheet.create({
   },
   list: {
 
+  },
+  list__title: {
+    marginTop: 20,
+    fontSize: 16
   },
   list__item: {
     flexDirection: 'row',

@@ -2,32 +2,33 @@ import React from 'react'
 import {
   View,
   Image,
+  TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
 import Text from '../../../components/Text'
 import Card from '../../../components/Card'
 
-import ItemStubImg from '../../../svg/item-stub.svg'
+import ItemImage from '../../components/ItemImage'
 
-export default ({item: {title, descr, weight, price, image}}) => (
-  <View style={styles.item}>
-    <Card>
-      {image ?
-        <Image style={styles.item__image} source={image} />
-        : <View style={styles.item__image}><ItemStubImg /></View>}
-      </Card>
-    <View style={styles.item__cont}>
-      <View>
-        <Text style={styles.item__title}>{title}</Text>
-        <Text style={styles.item__descr}>{descr}</Text>
-        <Text style={styles.item__weight}>{weight} гр</Text>
-      </View>
-      <View style={styles.item__price}>
-        <Text style={styles.item__price__text}>{price} ₽</Text>
-      </View>
+export default ({item: {title, descr, weight, price, image}, onClick}) => (
+  <TouchableWithoutFeedback onPress={onClick}>
+    <View style={styles.item}>
+        <Card>
+          <ItemImage style={styles.item__image} source={image} />
+          </Card>
+        <View style={styles.item__cont}>
+          <View>
+            <Text style={styles.item__title}>{title}</Text>
+            <Text style={styles.item__descr}>{descr}</Text>
+            <Text style={styles.item__weight}>{weight} гр</Text>
+          </View>
+          <View style={styles.item__price}>
+            <Text style={styles.item__price__text}>{price} ₽</Text>
+          </View>
+        </View>
     </View>
-  </View>)
+  </TouchableWithoutFeedback>)
 
 const styles = StyleSheet.create({
   item: {

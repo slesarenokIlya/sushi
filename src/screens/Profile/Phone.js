@@ -19,7 +19,7 @@ export default ({navigation}) => {
 
   const onContinue = () => {
     apiCall('', {phone}).then(() => {
-      navigation.navigate('profile-3', {phone, timeout: 3});
+      navigation.navigate('profile-code', {phone, timeout: 3});
     });
   }
 
