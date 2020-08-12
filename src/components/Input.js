@@ -3,36 +3,58 @@ import {
   View,
   StyleSheet,
   TextInput,
-  TouchableWithoutFeedback
-} from 'react-native'
+  TouchableWithoutFeedback,
+} from 'react-native';
 
-import Text from './Text'
+import Text from './Text';
 
-import ShowSvg from '../svg/show-input.svg'
+import ShowSvg from '../svg/show-input.svg';
 
-export default ({value, onChange, placeholder, style, inputStyle, secure, withoutBorder, ...props}) => {
-  const [ _secure, _setSecure ] = useState(!!secure);
+export default ({
+  value,
+  onChange,
+  placeholder,
+  style,
+  inputStyle,
+  secure,
+  withoutBorder,
+  ...props
+}) => {
+  const [_secure, _setSecure] = useState(!!secure);
 
-  return (<View style={[ style, styles.box ]}>
-    {placeholder ? (<Text style={styles.placeholder}>{placeholder}</Text>) : (<></>)}
-    <TextInput style={[
-        inputStyle,
-        styles.input,
-        withoutBorder ? styles.input_withoutBorder : undefined,
-        _secure ? styles.input__secure : undefined
-      ]}
-      value={value}
-      onChangeText={onChange}
-      secureTextEntry={_secure}
-      {...props}/>
+  return (
+    <View style={[style, styles.box]}>
+      {placeholder ? (
+        <Text style={styles.placeholder}>{placeholder}</Text>
+      ) : (
+        <></>
+      )}
+      <TextInput
+        style={[
+          inputStyle,
+          styles.input,
+          withoutBorder ? styles.input_withoutBorder : undefined,
+          _secure ? styles.input__secure : undefined,
+          props.editable ? undefined : styles.input__disabled,
+        ]}
+        value={value}
+        onChangeText={onChange}
+        secureTextEntry={_secure}
+        {...props}
+      />
 
-    {secure ?
-      <TouchableWithoutFeedback onPress={() => _setSecure(!_secure)}>
-        <View style={styles.box__show}><ShowSvg /></View>
-      </TouchableWithoutFeedback>
-      : (<></>)}
-  </View>);
-}
+      {secure ? (
+        <TouchableWithoutFeedback onPress={() => _setSecure(!_secure)}>
+          <View style={styles.box__show}>
+            <ShowSvg />
+          </View>
+        </TouchableWithoutFeedback>
+      ) : (
+        <></>
+      )}
+    </View>
+  );
+};
 
 const styles = new StyleSheet.create({
   box: {
@@ -51,14 +73,15 @@ const styles = new StyleSheet.create({
     height: 50,
     padding: 10,
     color: '#1D1C1B',
-    fontSize: 19
+    fontSize: 19,
   },
   input_withoutBorder: {
-    borderColor: 'transparent'
+    borderColor: 'transparent',
   },
   input__secure: {
-    paddingRight: 30
+    paddingRight: 30,
   },
+  input__disabled: {backgroundColor: '#fafafa'},
   box__show: {
     position: 'absolute',
     right: 10,
@@ -67,5 +90,5 @@ const styles = new StyleSheet.create({
     width: 40,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });

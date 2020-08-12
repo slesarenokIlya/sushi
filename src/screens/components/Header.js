@@ -1,24 +1,37 @@
-import React from 'react'
+import React from 'react';
 import {
   View,
   Image,
   TouchableWithoutFeedback,
-  StyleSheet
-} from 'react-native'
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
-import Text from '../../components/Text'
+import Text from '../../components/Text';
 
 export default ({title, buttonTitle, buttonClick}) => {
-  return (<View style={[
-      {justifyContent: buttonTitle ? 'space-between' : 'center'},
-      styles.header
-    ]}>
-    <Text style={styles.header__title} type="light">{title}</Text>
-    {buttonTitle ? (
-      <TouchableWithoutFeedback onPress={buttonClick}><Text style={styles.header__button}>{buttonTitle}</Text></TouchableWithoutFeedback>
-    ) : (<></>)}
-  </View>);
-}
+  return (
+    <View
+      style={[
+        {justifyContent: buttonTitle ? 'space-between' : 'center'},
+        styles.header,
+        {paddingVertical: buttonTitle ? 7 : undefined},
+      ]}>
+      <Text style={styles.header__title} type="light">
+        {title}
+      </Text>
+      {buttonTitle ? (
+        <TouchableOpacity
+          onPress={() => buttonClick()}
+          style={{paddingHorizontal: 10, paddingVertical: 5}}>
+          <Text style={styles.header__button}>{buttonTitle}</Text>
+        </TouchableOpacity>
+      ) : (
+        <></>
+      )}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   header: {
@@ -44,5 +57,5 @@ const styles = StyleSheet.create({
   header__button: {
     fontSize: 16,
     color: '#E32913',
-  }
+  },
 });

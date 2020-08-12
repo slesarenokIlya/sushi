@@ -1,66 +1,100 @@
-import React, {useState, useEffect} from 'react'
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  Dimensions
-} from 'react-native'
+import React, {useState, createRef} from 'react';
+import {useWindowDimensions, StyleSheet, View} from 'react-native';
+import BottomSheet from 'reanimated-bottom-sheet';
 
-import Text from '../../components/Text'
-import Screen from '../../components/Screen'
-import BottomScreen from '../../components/BottomScreen'
-import Button from '../../components/Button'
-import StickyScrollView from '../../components/StickyScrollView'
+import Screen from '../../components/Screen';
+import StickyScrollView from '../../components/StickyScrollView';
+import Arrow from '../../svg/item-content-arrow.svg';
+import Button from '../../components/Button';
 
-import {useLoadItems, useLoadOffers} from '../../store'
+import Header from './components/Header';
+import Offers from './components/Offers';
+import Filter from './components/Filter';
+import Item from './components/Item';
+import OfferContent from './components/OfferContent';
+import ItemContent from './components/ItemContent';
 
-import Header from './components/Header'
-import Offers from './components/Offers'
-import Filter from './components/Filter'
-import Item from './components/Item'
-import OfferContent from './components/OfferContent'
-import ItemContent from '../Item'
+import {offers, items} from '../../_data';
 
-export default ({navigation}) => {
-  const items = useLoadItems();
-  const offers = useLoadOffers();
-  const [ activeTab, setActiveTab ] = useState(0);
-  const [ activeOffer, setActiveOffer ] = useState(null);
+export default () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const [activeItem, setActiveItem] = useState(0);
+  const [activeOffer, setActiveOffer] = useState(0);
+  const [currentBottomSheet, setCurrentBottomSheet] = useState(false); // false for offers, true for menu items
+  const sheetRef = createRef();
+  const height = useWindowDimensions().height - 170;
 
-  const itemClick = ind => {
-    navigation.navigate('item', {item: items[ind]});
-  }
+  const onOpenOffer = id => {
+    setCurrentBottomSheet(false);
+    setActiveOffer(id);
+    sheetRef.current.snapTo(0);
+  };
 
-  return (<Screen disableScroll>
-    <Header />
-    <StickyScrollView style={{height: Dimensions.get('window').height - 170}}
-      topContent={(
-        <Offers items={offers} onClick={setActiveOffer}/>
-      )}
-      stickyContent={(
-        <Filter onChange={setActiveTab} selected={activeTab}/>
-      )}>
-      {items.filter(({category}) => category === activeTab).map((item, ind) =>
-        <Item key={ind} item={item} onClick={() => itemClick(ind)}/>
-      )}
-    </StickyScrollView>
+  const onOpenMenu = id => {
+    setCurrentBottomSheet(true);
+    setActiveItem(id);
+    sheetRef.current.snapTo(0);
+  };
 
-    {activeOffer !== null ? (
-      <BottomScreen minHeight={300}
-        initialHeight={500}
-        onClose={() => setActiveOffer(null)}
-        bottomContent={(
-          <Button>Показать</Button>
-        )}>
-        <OfferContent item={offers[activeOffer]}/>
-      </BottomScreen>
-    ) : (<></>)}
+  return (
+    <>
+      <BottomSheet
+        snapPoints={currentBottomSheet ? ['93%', -50] : [500, -50]}
+        initialSnap={1}
+        ref={sheetRef}
+        renderContent={() =>
+          currentBottomSheet ? (
+            <ItemContent
+              item={items[activeItem]}
+              onPress={() => sheetRef.current.snapTo(1)}
+            />
+          ) : (
+            <OfferContent item={offers[activeOffer]} />
+          )
+        }
+        renderHeader={() =>
+          currentBottomSheet ? (
+            <View style={{backgroundColor: 'white', flex: 1}}>
+              <Button
+                withoutBkg
+                style={style.closeButton}
+                onClick={() => sheetRef.current.snapTo(1)}
+                withoutBkg
+                noText>
+                <Arrow />
+              </Button>
+            </View>
+          ) : null
+        }
+      />
+      <Screen disableScroll>
+        <Header />
+        <StickyScrollView
+          style={{height}}
+          topContent={<Offers items={offers} onClick={onOpenOffer} />}
+          stickyContent={
+            <Filter onChange={setActiveTab} selected={activeTab} />
+          }>
+          {items
+            .filter(({category}) => category === activeTab)
+            .map((item, ind) => (
+              <Item key={ind} item={item} onClick={() => onOpenMenu(ind)} />
+            ))}
+        </StickyScrollView>
+      </Screen>
+    </>
+  );
+};
 
-  </Screen>)
-}
-
-const styles = StyleSheet.create({
-  items: {
-    height: 0,
+const style = StyleSheet.create({
+  closeButton: {
+    width: 40,
+    height: 40,
+    margin: 20,
+    borderRadius: 20,
+    elevation: 3,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-})
+});
