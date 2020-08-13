@@ -21,6 +21,7 @@ export default () => {
   const [birthday, setBirthday] = useState('');
   const [gender, setGender] = useState(1);
   const [isEditable, setEditable] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     loadUser().then(user => {
@@ -29,6 +30,7 @@ export default () => {
       setPhone(phone);
       setBirthday(birthday);
       setGender(gender);
+      setDataLoaded(true);
     });
   }, []);
 
@@ -41,39 +43,45 @@ export default () => {
       />
 
       <View style={styles.cont}>
-        <Input
-          value={name}
-          onChange={setName}
-          placeholder="Имя"
-          editable={isEditable}
-        />
-        <Input
-          value={phone}
-          onChange={setPhone}
-          placeholder="Телефон"
-          editable={isEditable}
-        />
-        <DateInput
-          value={birthday}
-          onChange={setBirthday}
-          editable={isEditable}
-          placeholder="День рождения"
-        />
-        {/* <InputSelect items={['Мужской', 'Женский']} selected={gender} onSelect={setGender} placeholder="Пол" /> */}
-        <Text style={styles.placeholder}>Пол</Text>
-        <View
-          style={[
-            styles.input,
-            {backgroundColor: isEditable ? undefined : '#fafafa'},
-          ]}>
-          <Select
-            value={gender}
-            items={[{label: 'Мужской', value: 1}, {label: 'Женский', value: 2}]}
-            onValueChange={value => setGender(value)}
-            style={[{width: '100%'}]}
-            enabled={isEditable}
-          />
-        </View>
+        {dataLoaded && (
+          <>
+            <Input
+              value={name}
+              onChange={setName}
+              placeholder="Имя"
+              editable={isEditable}
+            />
+            <Input
+              value={phone}
+              onChange={setPhone}
+              placeholder="Телефон"
+              editable={isEditable}
+            />
+            <DateInput
+              value={birthday}
+              onChange={setBirthday}
+              editable={isEditable}
+              placeholder="День рождения"
+            />
+            <Text style={styles.placeholder}>Пол</Text>
+            <View
+              style={[
+                styles.input,
+                {backgroundColor: isEditable ? undefined : '#fafafa'},
+              ]}>
+              <Select
+                value={gender}
+                items={[
+                  {label: 'Мужской', value: 1},
+                  {label: 'Женский', value: 2},
+                ]}
+                onValueChange={value => setGender(value)}
+                style={[{width: '100%'}]}
+                enabled={isEditable}
+              />
+            </View>
+          </>
+        )}
       </View>
 
       <View style={styles.bottom}>

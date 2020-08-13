@@ -29,7 +29,7 @@ export default () => {
 
   useEffect(() => {
     Promise.all([loadOrders(), loadItems()]).then(d => {
-      setDeliveryItems(d[0]);
+      setDeliveryItems(d[0].filter(item => !item.status));
       setAllItems(d[1]);
       setLoaded(true);
     });

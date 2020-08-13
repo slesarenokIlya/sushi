@@ -1,4 +1,4 @@
-import React, {useState, createRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {useWindowDimensions, StyleSheet, View} from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet';
 
@@ -21,8 +21,10 @@ export default () => {
   const [activeItem, setActiveItem] = useState(0);
   const [activeOffer, setActiveOffer] = useState(0);
   const [currentBottomSheet, setCurrentBottomSheet] = useState(false); // false for offers, true for menu items
-  const sheetRef = createRef();
+  const sheetRef = useRef();
   const height = useWindowDimensions().height - 170;
+
+  // console.log(params);
 
   const onOpenOffer = id => {
     setCurrentBottomSheet(false);
@@ -33,6 +35,7 @@ export default () => {
   const onOpenMenu = id => {
     setCurrentBottomSheet(true);
     setActiveItem(id);
+    // console.log(id);
     sheetRef.current.snapTo(0);
   };
 

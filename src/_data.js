@@ -66,7 +66,6 @@ export const items = [
       {title: 'Фила чиз', count: 4},
     ],
   },
-
   {
     id: 4,
     title: 'test',
@@ -235,6 +234,132 @@ export const orders = [
 Оплата картой онлайн`,
     items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
   },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
+  {
+    id: 12132112000,
+    date: new Date(),
+    count: 4,
+    amount: 1212,
+    status: 1,
+    deliveryTime: 35,
+    summary: {bonuses: 20, price: 1099, delivery: 0, sale: 0},
+    details: `Санкт-Петербург, улица Туристская, 24/42, подъезд 1,
+этаж 9, квартира 88
+Получатель Андрей, +7 887 787 88 88
+Оплата картой онлайн`,
+    items: [{id: 2, count: 2}, {id: 6, count: 5}, {id: 8, count: 1}],
+  },
 ];
 
 export const basketOffers = [0, 3, 5, 6];
@@ -243,6 +368,11 @@ export const user = {
   name: 'Андрей',
   phone: '12121212',
   birthday: '12.12.12',
-  gender: 2,
+  gender: 1,
   balance: 1234,
 };
+
+export const addresses = [
+  'Санкт-Петербург, улица Туристская, 24/42, подъезд 1, этаж 9, квартира 88',
+  'Санкт-Петербург, улица Пушкина, 12, подъезд 5, этаж 2, квартира 11',
+];
