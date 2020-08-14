@@ -1,5 +1,5 @@
-import itemImg from './img/item.png';
-import offerImg from './img/offer.png';
+// import itemImg from './img/item.png';
+// import offerImg from './img/offer.png';
 
 export const items = [
   {
