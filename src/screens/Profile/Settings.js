@@ -4,7 +4,6 @@ import {View, Image, StyleSheet} from 'react-native';
 import Text from '../../components/Text';
 import Screen from '../../components/Screen';
 import Input from '../../components/Input';
-import InputSelect from '../../components/InputSelect';
 import DateInput from '../../components/DateInput';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
@@ -13,9 +12,6 @@ import {loadUser} from '../../store';
 import Header from '../components/Header';
 
 export default () => {
-  // const user = LoadUser();
-  // console.log(user);
-  // const [user, setUser] = useState({});
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [birthday, setBirthday] = useState('');

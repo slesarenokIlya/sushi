@@ -1,15 +1,11 @@
-import React from 'react'
-import {
-  View,
-  Image,
-  TouchableWithoutFeedback,
-  StyleSheet
-} from 'react-native'
+import React from 'react';
+import {View, Image, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 
-import Swiper from '../../../components/Swiper'
+import Swiper from '../../../components/Swiper';
 
 export default ({items, onClick}) => {
-    return (<View style={styles.box}>
+  return (
+    <View style={styles.box}>
       <Swiper>
         {items.map(({image}, ind) => (
           <TouchableWithoutFeedback key={ind} onPress={() => onClick(ind)}>
@@ -17,11 +13,15 @@ export default ({items, onClick}) => {
           </TouchableWithoutFeedback>
         ))}
       </Swiper>
-    </View>)
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   box__item: {
-    height: 115
-  }
-})
+    height: 115,
+    width: 320,
+    resizeMode: 'cover',
+    borderRadius: 5,
+  },
+});

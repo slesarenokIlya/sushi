@@ -18,6 +18,8 @@ export default ({
   inputStyle,
   secure,
   withoutBorder,
+  editable = true,
+  error = false,
   ...props
 }) => {
   const [_secure, _setSecure] = useState(!!secure);
@@ -35,7 +37,8 @@ export default ({
           styles.input,
           withoutBorder ? styles.input_withoutBorder : undefined,
           _secure ? styles.input__secure : undefined,
-          props.editable ? undefined : styles.input__disabled,
+          editable ? undefined : styles.input__disabled,
+          error ? styles.error : undefined,
         ]}
         value={value}
         onChangeText={onChange}
@@ -68,6 +71,7 @@ const styles = new StyleSheet.create({
   },
   input: {
     borderWidth: 1,
+    backgroundColor: 'white',
     borderColor: '#D5D8DD',
     borderRadius: 8,
     height: 50,
@@ -90,5 +94,8 @@ const styles = new StyleSheet.create({
     width: 40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  error: {
+    borderColor: '#E32913',
   },
 });

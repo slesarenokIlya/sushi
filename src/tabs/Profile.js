@@ -11,6 +11,7 @@ import SettingsScreen from '../screens/Profile/Settings';
 import HistoryScreen from '../screens/Profile/History';
 import ActiveScreen from '../screens/Profile/Active';
 import AddressesScreen from '../screens/Profile/Addresses';
+import AddAddressScreen from '../screens/Profile/AddAddress';
 
 export default () => (
   <Stack.Navigator
@@ -24,5 +25,6 @@ export default () => (
     <Stack.Screen name="profile-history" component={HistoryScreen} />
     <Stack.Screen name="profile-active" component={ActiveScreen} />
     <Stack.Screen name="profile-addresses" component={AddressesScreen} />
+    <Stack.Screen name="profile-addaddress" component={AddAddressScreen} />
   </Stack.Navigator>
 );
