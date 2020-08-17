@@ -181,7 +181,12 @@ export const orders = [
 этаж 9, квартира 88
 Получатель Андрей, +7 887 787 88 88
 Оплата картой онлайн`,
-    items: [{id: 2, count: 1}, {id: 4, count: 2}, {id: 3, count: 1}],
+    items: [
+      {id: 2, count: 1},
+      {id: 4, count: 2},
+      {id: 3, count: 1},
+      {id: 5, count: 2},
+    ],
   },
   {
     id: 12132112,

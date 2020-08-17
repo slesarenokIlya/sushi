@@ -24,6 +24,7 @@ export default () => {
   const user = useLoadUser();
   const {width, height} = useWindowDimensions();
   const navigation = useNavigation();
+  console.log(height);
 
   const greeting =
     user.gender === 1 ? (
@@ -66,7 +67,13 @@ export default () => {
       <View style={styles.cont}>
         <View style={styles.greeting}>{greeting}</View>
       </View>
-      <View style={{flexDirection: 'column', alignItems: 'center', width}}>
+      <View
+        style={{
+          flexDirection: 'column',
+          alignItems: 'center',
+          width,
+          paddingRight: 20,
+        }}>
         <View style={styles.row}>
           <TouchableWithoutFeedback
             onPress={() => {
@@ -74,7 +81,7 @@ export default () => {
             }}>
             <View style={styles.button}>
               <Card>
-                <Location width={130} height={100} />
+                <Location width={0.25 * width} height={0.15 * height} />
               </Card>
               <Text style={styles.buttonLabel}>Адреса доставки</Text>
             </View>
@@ -85,7 +92,7 @@ export default () => {
             }}>
             <View style={styles.button}>
               <Card>
-                <Message width={130} height={100} />
+                <Message width={0.25 * width} height={0.15 * height} />
               </Card>
               <Text style={styles.buttonLabel}>История заказов</Text>
             </View>
@@ -98,7 +105,7 @@ export default () => {
             }}>
             <View style={styles.button}>
               <Card>
-                <DeliveryTruck width={130} height={100} />
+                <DeliveryTruck width={0.25 * width} height={0.15 * height} />
               </Card>
               <Text style={styles.buttonLabel}>Активные заказы</Text>
             </View>
@@ -109,7 +116,7 @@ export default () => {
             }}>
             <View style={styles.button}>
               <Card>
-                <Review width={130} height={100} />
+                <Review width={0.25 * width} height={0.15 * height} />
               </Card>
               <Text style={styles.buttonLabel}>Контакты</Text>
             </View>
@@ -145,7 +152,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   cont: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
     marginTop: 10,
   },
   greeting: {
@@ -162,6 +169,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    // width: '100%',
     justifyContent: 'space-between',
   },
   button: {

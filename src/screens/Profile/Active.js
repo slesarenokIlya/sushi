@@ -40,7 +40,7 @@ export default () => {
       itemShow
     ];
     return (
-      <View style={styles.sheet_cont}>
+      <View style={[styles.sheet_cont, {height: 550 + items.length * 100}]}>
         <View style={{alignSelf: 'center'}}>
           <Icon name="chevron-down" size={40} color="#EBEBEA" />
         </View>

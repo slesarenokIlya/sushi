@@ -20,7 +20,7 @@ export default ({items, onClick}) => {
 const styles = StyleSheet.create({
   box__item: {
     height: 115,
-    width: 320,
+    width: '95%',
     resizeMode: 'cover',
     borderRadius: 5,
   },
