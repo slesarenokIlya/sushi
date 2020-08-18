@@ -22,9 +22,12 @@ export default ({item}) => {
         style={{
           borderTopLeftRadius: 32,
           borderTopRightRadius: 32,
-          elevation: 2,
+          elevation: 3,
           flex: 1,
           paddingTop: 20,
+          shadowColor: '#00000017',
+          shadowOffset: {width: 0, height: -6},
+          shadowRadius: 33,
         }}>
         <View style={styles.item__content}>
           <Text style={styles.item__content__title}>{title}</Text>
@@ -32,13 +35,16 @@ export default ({item}) => {
             <Text
               key={ind}
               style={styles.item__content__list__item}
-              type="light">
+              type="Light">
               • {title} – {count}
             </Text>
           ))}
-
-          <Card withoutPadding style={{maxWidth: 100}}>
-            <Text style={styles.item__content__weight}>{weight} гр</Text>
+          <Card
+            withoutPadding
+            style={{maxWidth: 100, marginTop: 16, marginBottom: 30}}>
+            <Text style={styles.item__content__weight} type="Light">
+              {weight} гр
+            </Text>
           </Card>
           <Button
             style={styles.item__content__button}
@@ -49,10 +55,10 @@ export default ({item}) => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
               }}>
-              <Text style={styles.item__content__button__text} type="bold">
+              <Text style={styles.item__content__button__text} type="Medium">
                 В корзину
               </Text>
-              <Text style={styles.item__content__button__text} type="bold">
+              <Text style={styles.item__content__button__text} type="Medium">
                 {price} ₽
               </Text>
             </View>

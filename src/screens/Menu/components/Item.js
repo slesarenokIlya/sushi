@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   item__image: {
     height: 115,
     width: 115,
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
     resizeMode: 'contain',

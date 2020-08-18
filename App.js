@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -158,14 +158,16 @@ const startNav = () => (
 );
 
 const App = () => (
-  <NavigationContainer>
-    <Stack.Navigator
-      screenOptions={{header: () => null}}
-      initialRouteName={'start'}>
-      <Stack.Screen name="start" component={startNav} />
-      <Stack.Screen name="main" component={mainNav} />
-    </Stack.Navigator>
-  </NavigationContainer>
+  <SafeAreaView style={{flex: 1}}>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{header: () => null}}
+        initialRouteName={'start'}>
+        <Stack.Screen name="start" component={startNav} />
+        <Stack.Screen name="main" component={mainNav} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </SafeAreaView>
 );
 
 export default App;
