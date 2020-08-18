@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, useWindowDimensions} from 'react-native';
 
 import Button from '../../../components/Button';
 import Card from '../../../components/Card';
@@ -9,8 +9,14 @@ import ItemImage from '../../components/ItemImage';
 export default ({item}) => {
   if (!item) return <></>;
   const {title, list, weight, price, image} = item;
+  const {width, height} = useWindowDimensions();
+  const customHeight = width + 200 + 25 * list.length;
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {height: height * 0.85 > customHeight ? height * 0.85 : customHeight},
+      ]}>
       <ItemImage style={styles.item__image} source={image} />
       <View
         style={{
@@ -60,7 +66,7 @@ export default ({item}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: 1050,
+    // height: 1050,
   },
   closeButton: {
     width: 40,
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
   },
   item__image: {
     width: '100%',
-    height: '40%',
+    borderRadius: 5,
     resizeMode: 'contain',
   },
   item__content: {

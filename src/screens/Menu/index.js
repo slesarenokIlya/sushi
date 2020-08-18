@@ -81,7 +81,11 @@ export default () => {
           {items
             .filter(({category}) => category === activeTab)
             .map((item, ind) => (
-              <Item key={ind} item={item} onClick={() => onOpenMenu(ind)} />
+              <Item
+                key={ind}
+                item={item}
+                onClick={() => onOpenMenu(item.id - 1)}
+              />
             ))}
         </StickyScrollView>
       </Screen>

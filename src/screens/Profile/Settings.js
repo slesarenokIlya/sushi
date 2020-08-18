@@ -52,6 +52,7 @@ export default () => {
               onChange={setPhone}
               placeholder="Телефон"
               editable={isEditable}
+              keyboardType="phone-pad"
             />
             <DateInput
               value={birthday}
@@ -63,7 +64,10 @@ export default () => {
             <View
               style={[
                 styles.input,
-                {backgroundColor: isEditable ? undefined : '#fafafa'},
+                {
+                  backgroundColor: isEditable ? undefined : '#fafafa',
+                  justifyContent: 'center',
+                },
               ]}>
               <Select
                 value={gender}

@@ -24,7 +24,6 @@ export default () => {
   const user = useLoadUser();
   const {width, height} = useWindowDimensions();
   const navigation = useNavigation();
-  console.log(height);
 
   const greeting =
     user.gender === 1 ? (

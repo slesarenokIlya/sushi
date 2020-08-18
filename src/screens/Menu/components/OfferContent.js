@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
   },
   box__image: {
     width: '100%',
-    maxHeight: 100,
+    // maxHeight: 100,
+    height: 150,
     borderRadius: 10,
   },
   box__title: {

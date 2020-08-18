@@ -43,6 +43,7 @@ export default ({
         value={value}
         onChangeText={onChange}
         secureTextEntry={_secure}
+        editable={editable}
         {...props}
       />
 
