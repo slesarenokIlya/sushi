@@ -10,7 +10,7 @@ export default ({item}) => {
   if (!item) return <></>;
   const {title, list, weight, price, image} = item;
   const {width, height} = useWindowDimensions();
-  const customHeight = width + 200 + 25 * list.length;
+  const customHeight = width + 200 + 27 * list.length;
   return (
     <View
       style={[
@@ -25,23 +25,25 @@ export default ({item}) => {
           elevation: 3,
           flex: 1,
           paddingTop: 20,
-          shadowColor: '#00000017',
+          // shadowColor: '#00000017',
+          shadowOpacity: 0.15,
+          marginTop: 10,
           shadowOffset: {width: 0, height: -6},
           shadowRadius: 33,
         }}>
         <View style={styles.item__content}>
           <Text style={styles.item__content__title}>{title}</Text>
           {list.map(({title, count}, ind) => (
-            <Text
-              key={ind}
-              style={styles.item__content__list__item}
-              type="Light">
-              • {title} – {count}
-            </Text>
+            <View key={ind} style={{paddingVertical: 1}}>
+              <Text style={styles.item__content__list__item} type="Light">
+                • {title} – {count}
+                {ind === list.length - 1 ? '.' : ','}
+              </Text>
+            </View>
           ))}
           <Card
             withoutPadding
-            style={{maxWidth: 100, marginTop: 16, marginBottom: 30}}>
+            style={{maxWidth: 100, marginTop: 20, marginBottom: 30}}>
             <Text style={styles.item__content__weight} type="Light">
               {weight} гр
             </Text>

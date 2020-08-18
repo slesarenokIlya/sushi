@@ -42,7 +42,7 @@ export default () => {
   return (
     <>
       <BottomSheet
-        snapPoints={currentBottomSheet ? ['92%', -50] : [500, -50]}
+        snapPoints={currentBottomSheet ? ['90%', -50] : [500, -50]}
         initialSnap={1}
         ref={sheetRef}
         renderContent={() =>
