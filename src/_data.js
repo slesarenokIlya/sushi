@@ -62,7 +62,7 @@ export const items = [
     weight: 2000,
     price: 1689,
     image: require('./img/imperia_vkusa.png'),
-    category: 0,
+    category: 1,
     list: [
       {title: 'Атари маки', count: 8},
       {title: 'Нежный лосось', count: 8},

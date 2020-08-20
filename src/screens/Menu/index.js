@@ -97,7 +97,9 @@ const style = StyleSheet.create({
   closeButton: {
     width: 40,
     height: 40,
-    margin: 20,
+    // margin: 5,
+    marginHorizontal: 20,
+    marginBottom: 20,
     borderRadius: 20,
     elevation: 3,
     backgroundColor: 'white',

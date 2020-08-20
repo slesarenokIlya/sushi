@@ -10,15 +10,19 @@ export default ({item}) => {
   if (!item) return <></>;
   const {title, list, weight, price, image} = item;
   const {width, height} = useWindowDimensions();
-  const customHeight = width + 200 + 27 * list.length;
+  const customHeight = width + 210 + 27 * list.length;
+  const minHeight = height * 0.9 - 60;
   return (
     <View
       style={[
         styles.container,
-        {height: height * 0.85 > customHeight ? height * 0.85 : customHeight},
+        {
+          height: Math.max(minHeight, customHeight),
+        },
       ]}>
       <ItemImage style={styles.item__image} source={image} />
-      <View
+      <Card
+        withoutPadding
         style={{
           borderTopLeftRadius: 32,
           borderTopRightRadius: 32,
@@ -26,10 +30,11 @@ export default ({item}) => {
           flex: 1,
           paddingTop: 20,
           // shadowColor: '#00000017',
-          shadowOpacity: 0.15,
           marginTop: 10,
-          shadowOffset: {width: 0, height: -6},
-          shadowRadius: 33,
+          shadowColor: '#000',
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          paddingBottom: 20,
         }}>
         <View style={styles.item__content}>
           <Text style={styles.item__content__title}>{title}</Text>
@@ -66,7 +71,7 @@ export default ({item}) => {
             </View>
           </Button>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
