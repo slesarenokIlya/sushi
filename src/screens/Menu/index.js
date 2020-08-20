@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {useWindowDimensions, StyleSheet, View} from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet';
+import DeviceInfo from 'react-native-device-info';
 
 import Screen from '../../components/Screen';
 import StickyScrollView from '../../components/StickyScrollView';
@@ -15,6 +16,8 @@ import OfferContent from './components/OfferContent';
 import ItemContent from './components/ItemContent';
 
 import {offers, items} from '../../_data';
+
+const notch = DeviceInfo.hasNotch();
 
 export default () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -98,6 +101,7 @@ const style = StyleSheet.create({
     width: 40,
     height: 40,
     // margin: 5,
+    marginTop: notch ? 20 : 0,
     marginHorizontal: 20,
     marginBottom: 20,
     borderRadius: 20,

@@ -1,17 +1,20 @@
 import React from 'react';
 import {View, StyleSheet, useWindowDimensions} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 import Button from '../../../components/Button';
 import Card from '../../../components/Card';
 import Text from '../../../components/Text';
 import ItemImage from '../../components/ItemImage';
 
+const notch = DeviceInfo.hasNotch();
+
 export default ({item}) => {
   if (!item) return <></>;
   const {title, list, weight, price, image} = item;
   const {width, height} = useWindowDimensions();
-  const customHeight = width + 210 + 27 * list.length;
-  const minHeight = height * 0.9 - 60;
+  const customHeight = Math.max(440, width) + 210 + 27 * list.length;
+  const minHeight = height * 0.9 - 60 - (notch ? 20 : 0);
   return (
     <View
       style={[
@@ -34,7 +37,6 @@ export default ({item}) => {
           shadowColor: '#000',
           shadowOpacity: 0.22,
           shadowRadius: 2.22,
-          paddingBottom: 20,
         }}>
         <View style={styles.item__content}>
           <Text style={styles.item__content__title}>{title}</Text>
