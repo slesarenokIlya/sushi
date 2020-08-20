@@ -81,6 +81,7 @@ export default () => {
           stickyContent={
             <Filter onChange={setActiveTab} selected={activeTab} />
           }>
+          <View style={{paddingBottom:20}}>
           {items
             .filter(({category}) => category === activeTab)
             .map((item, ind) => (
@@ -90,6 +91,7 @@ export default () => {
                 onClick={() => onOpenMenu(item.id - 1)}
               />
             ))}
+            </View>
         </StickyScrollView>
       </Screen>
     </>

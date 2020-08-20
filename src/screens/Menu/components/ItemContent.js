@@ -13,8 +13,8 @@ export default ({item}) => {
   if (!item) return <></>;
   const {title, list, weight, price, image} = item;
   const {width, height} = useWindowDimensions();
-  const customHeight = Math.max(440, width) + 210 + 27 * list.length;
-  const minHeight = height * 0.9 - 60 - (notch ? 20 : 0);
+  const customHeight = Math.max(440, width) + 220 + 27 * list.length;
+  const minHeight = height - 60 - (notch ? 20 : 0);
   return (
     <View
       style={[
